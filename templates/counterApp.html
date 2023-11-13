@@ -1,0 +1,14 @@
+{{define "counterApp"}}
+<button
+  type="button"
+  hx-post="/count-up"
+  hx-target="#count"
+  hx-on::before-request="this.disabled = true"
+  hx-on::after-request="this.disabled = false"
+>
+  Count up
+  <span id="loading" class="htmx-indicator loading">Loading...</span>
+</button>
+{{ block "count" . }}
+<span id="count">{{ . }}</span>
+{{ end }} {{ end }}
